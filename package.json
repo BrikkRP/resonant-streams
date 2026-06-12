@@ -1,7 +1,7 @@
 {
   "name": "resonant-streams",
   "version": "1.0.0",
-  "description": "Discord bot that gives a Live Now role when members stream with approved keywords.",
+  "description": "Resonant Streams Discord Bot",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js"
