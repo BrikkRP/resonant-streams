@@ -2,11 +2,13 @@ require('dotenv').config();
 
 const {
     Client,
-    GatewayIntentBits
+    GatewayIntentBits,
+    ActivityType
 } = require('discord.js');
 
 const config = require('./config');
-const handlePresenceUpdate = require('./presenceHandler');
+const handlePresenceUpdate =
+    require('./presenceHandler');
 
 const client = new Client({
     intents: [
@@ -16,28 +18,49 @@ const client = new Client({
     ]
 });
 
-client.once('ready', () => {
+client.once('clientReady', () => {
+
     console.log('================================');
-    console.log(`Logged in as ${client.user.tag}`);
-    console.log('Resonant Streams Online');
+    console.log(
+        `Logged in as ${client.user.tag}`
+    );
+    console.log(
+        'Resonant Streams Online'
+    );
     console.log('================================');
 
-    client.user.setActivity('for Twitch streams');
+    client.user.setActivity(
+        'for Twitch streams',
+        {
+            type: ActivityType.Watching
+        }
+    );
+
 });
 
-client.on('presenceUpdate', handlePresenceUpdate);
+client.on(
+    'presenceUpdate',
+    handlePresenceUpdate
+);
 
-process.on('unhandledRejection', error => {
-    console.error('Unhandled Promise Rejection:', error);
-});
+process.on(
+    'unhandledRejection',
+    console.error
+);
 
-process.on('uncaughtException', error => {
-    console.error('Uncaught Exception:', error);
-});
+process.on(
+    'uncaughtException',
+    console.error
+);
 
 if (!config.token) {
-    console.error('Missing DISCORD_TOKEN in .env');
+
+    console.error(
+        'Missing DISCORD_TOKEN'
+    );
+
     process.exit(1);
+
 }
 
 client.login(config.token);
