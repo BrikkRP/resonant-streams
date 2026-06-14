@@ -15,5 +15,4 @@ module.exports = {
         .split(',')
         .map(keyword => keyword.trim().toLowerCase())
         .filter(Boolean)
-        // test line
 };
