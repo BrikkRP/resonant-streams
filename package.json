@@ -1,0 +1,14 @@
+{
+  "name": "resonant-streams",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Resonant Roleplay Twitch streaming roles, announcements and setup replies",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.26.4",
+    "dotenv": "^17.4.2"
+  }
+}
